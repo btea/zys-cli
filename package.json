@@ -1,0 +1,17 @@
+{
+  "name": "zys",
+  "version": "0.0.2-3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "zys": "bin/zys.js"
+  },
+  "dependencies": {
+    "commander": "^2.19.0"
+  }
+}
