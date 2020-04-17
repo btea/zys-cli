@@ -15,6 +15,8 @@ module.exports = async function() {
 function inquireBase(answerStep, submenu) {
 	return new Promise(resolve => {
 		const inquireOptions = inquirer.createPromptModule();
+		// inquirer checkbox space选中
+		// Press <space> to select, <a> to toggale all, <i> to invert selection
 		inquireOptions(inquirerList).then(answers => {
 			submenu.forEach(item => {
 				if (answers.options.includes(item)) {

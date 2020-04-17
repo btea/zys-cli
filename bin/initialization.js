@@ -17,7 +17,6 @@ function isQuickCreact(cmd) {
     	require('../src/create')();
   	}
 }
-
 // 初始化命令
 function programConfig() {
   program.version(requiredPackageVersion)

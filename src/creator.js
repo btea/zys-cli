@@ -47,7 +47,6 @@ function spawnCmd(dest) {
 	if (_packageManagement === 'npm') {
 		cmdInstall += '--registry=https://registry.npm.taobao.org';
 	}
-	console.log(cmdInstall);
 	const ls = spawn(_packageManagement, [cmdInstall], {
 		cwd: dest,
 		stdio: 'inherit',
