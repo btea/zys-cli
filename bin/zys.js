@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+
+require('./initialization')();
+
+return;
+
 const program = require('commander');
 // http://tj.github.io/commander.js/
 const packageJson = require('../package');

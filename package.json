@@ -3,15 +3,23 @@
   "version": "0.0.2-3",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "8.9.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "bin": {
-    "zys": "bin/zys.js"
+    "zys": "bin/zys.js",
+    "zys-service": "./service/index.js"
   },
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "cross-env": "^7.0.2",
+    "fs-extra": "^9.0.0",
+    "inquirer": "^7.1.0",
+    "semver": "^7.3.2"
   }
 }
