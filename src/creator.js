@@ -19,7 +19,6 @@ module.exports = function() {
 	console.log(`> Creating project in ${chalk.yellow(dest)}`);
   	console.log(`> Installing CLI plugins. This might take a while...`);
 	console.log('');
-	// console.log('\x1b[31m小师叔，回山了\x1b[0m');
 	// 拷贝模板文件
 	fs.copy(src, dest).then(() => {
 		// 根据选项写入文件
@@ -39,7 +38,7 @@ module.exports = function() {
 function spawnCmd(dest) {
 	// 依赖安装命令
 	let _packageManagement = packageManagement();
-	let cmdInstall = _packageManagement === 'yarn' ? 'add -D' : 'install -D';
+	let cmdInstall = _packageManagement === 'yarn' ? 'add -D ' : 'install -D ';
 	store.options.dependencies.forEach(item => {
 		cmdInstall += `${item.name}@${item.version} `;
 	});

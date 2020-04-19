@@ -14,7 +14,9 @@ const htmlTemplate = `
   	<title>${store.dirname}</title>
 </head>
 <body>
-	<p>zys-cli  v${version}</p>
+	<div id="app">
+		<h2>zys-cli  v${version}</h2>
+	</div>
 </body>
 </html>
 `;
