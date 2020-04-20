@@ -45,7 +45,7 @@ if (store.options.mobileLayout) {
 // 配置文件模板
 const configTemplate = `module.exports = {
 	// 入口文件
-	entry: [\n    '${entry.join("',\n    '").toString()}'\n  ],
+	entry: [\n        '${entry.join("',\n        '").toString()}'\n    ],
 	// pug: ${store.options.pug},
 	eslint: ${store.options.eslint},
 	babel: ${store.options.babel},
