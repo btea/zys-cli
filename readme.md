@@ -1,8 +1,8 @@
-### [:tada:]**Install**   
+### :dart:**Install**   
 ```
 npm install -g zys  
 ```  
-### **Usage**  
+### :maple_leaf:**Usage**  
 create a new project with the following instructions:  
 ```
 zys create [name]
