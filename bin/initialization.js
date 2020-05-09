@@ -33,17 +33,17 @@ function programConfig() {
       store.cmd = 'create';
       store.dirname = name;
       // 清空控制台，并输出当前 zys-cli 版本
-    //   clearConsole('cyan', `zys-cli v${requiredPackageVersion}`);
-	  // 判断参数 是否避免版本检测
+      //   clearConsole('cyan', `zys-cli v${requiredPackageVersion}`);
+	    // 判断参数 是否避免版本检测
       if (cmd.noversion) {
         isQuickCreact(cmd);
       } else {
-		// 检测 zys-cli 版本（通过 npm 获取 latest 版本号）
-		let info = require('../package');
-		await checkPackageVersion(info.name, info.version);
-        isQuickCreact(cmd);
-      }
-    });
+		  // 检测 zys-cli 版本（通过 npm 获取 latest 版本号）
+		  let info = require('../package');
+		  await checkPackageVersion(info.name, info.version);
+      isQuickCreact(cmd);
+    }
+});
 
   // 测试
   program.command('test <name>')
