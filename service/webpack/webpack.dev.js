@@ -10,6 +10,25 @@ const port = config.port || 8080;
 const open = config.open || false;
 const proxy = config.proxy || {};
 
+const devPlugin = [
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.ProgressPlugin(function(percentage) {
+    if (percentage === 1) {
+      clearConsole('cyan', `zys v${require('../../package.json').version}`);
+      console.log(chalk.cyan(`- Local: http://localhost:${port}/`));
+      console.log(chalk.cyan(`- Network: http://${getIPAdress()}:${port}/`));
+      // console.log(chalk.cyan(`- Documentation: https://codexu.github.io/`));
+      console.log('');
+    }
+  }),
+]
+const configPlugin = config.plugins || []
+const plugins = [...devPlugin, ...configPlugin]
+let extensions = []
+if (config.resolve) {
+  extensions = [...(config.resolve.extensions || [])]
+}
+common.resolve.extensions = [...new Set([...extensions, ...common.resolve.extensions])]
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
@@ -25,18 +44,10 @@ module.exports = merge(common, {
     },
     stats:'minimal'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.ProgressPlugin(function(percentage) {
-      if (percentage === 1) {
-        clearConsole('cyan', `zys v${require('../../package.json').version}`);
-        console.log(chalk.cyan(`- Local: http://localhost:${port}/`));
-        console.log(chalk.cyan(`- Network: http://${getIPAdress()}:${port}/`));
-        // console.log(chalk.cyan(`- Documentation: https://codexu.github.io/`));
-        console.log('');
-      }
-    })
-  ]
+  module: {
+    rules: [...config.rules]
+  },
+  plugins: plugins
 });
 
 function getIPAdress() {
